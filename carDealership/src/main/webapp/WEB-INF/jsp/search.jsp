@@ -1,4 +1,3 @@
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -6,7 +5,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Login page</title>
+<title>Customer Portal</title>
 
 <link rel="canonical"
 	href="https://getbootstrap.com/docs/4.4/examples/cover/">
@@ -47,43 +46,36 @@
 				<h3 class="masthead-brand">Cover</h3>
 				<nav class="nav nav-masthead justify-content-center">
 					<a class="nav-link active" href="/index">Home</a> <a class="nav-link"
-						href="/login">Login</a> <a class="nav-link" href="/sign-up">Sign up</a>
+						href="/login">Login</a> <a class="nav-link" href="/sign-up">Sign Up</a>
 				</nav>
 			</div>
 		</header>
+		<main>
 
-		<main role="main" class="inner cover">
 
+			<div class="container">
 
-			<form:form action="/login" modelAttribute="customer" method="post">
-
-				<div class="form-row justify-content-center">
-					<div class="form-group col-md-3">
-					<h3>${msg} <br>
-                           <small class="text-danger">${error} ${param.error} </small> <br>
-                                Please Sign in now</h3>
-						<label for="inputEmail4">Email</label>
-						
-						<!-- the path here has to match up to the customer object (since we told it that in the modelAttribute)-->
-						
-						<form:input path="email" type="email" class="form-control"
-							id="inputEmail4" href="index?loggedIn=${loggedIn.email}"/>
-					</div>
+				<h2 class="cover-heading">Search</h2>
+				<br>${msg}<br>
+				<div class="row align-items-center">
+					<h5>Search Vehicles</h5>
 				</div>
-
-				<div class="form-row justify-content-center">
-					<div class="form-group col-md-3">
-						<label for="inputPassword4">Password</label>
-						<form:input path="password" type="password" class="form-control"
-							id="inputPassword4" />
-					</div>
+				<div class="row align-items-center">
+					<form class="row contact_form" method="post">
+						<input type="text" id="keyword" name="keyword"
+							placeholder="Search keyword: ex. Ford, new, used, mustang, etc.."
+							class="form-control" /> <a href="/search" class="text-info"><button
+								type="submit" value="submit" class="myButton">Search</button></a>
+					</form>
 				</div>
+			</div>
 
-				<button type="submit" class="btn btn-primary">Log in</button>
-			</form:form>
+
 
 
 		</main>
+
+
 
 		<footer class="mastfoot mt-auto">
 			<div class="inner">

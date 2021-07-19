@@ -13,7 +13,7 @@
 <meta name="author"
 	content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
 <meta name="generator" content="Hugo 0.84.0">
-<title>For Sale Inventory</title>
+<title>Album example · Bootstrap v5.0</title>
 
 <link rel="canonical"
 	href="https://getbootstrap.com/docs/5.0/examples/album/">
@@ -53,63 +53,39 @@
 	<main>
 
 		<section class="py-5 text-center container">
-				<div class="col-lg-6 col-md-8 mx-auto">
-					<h1 class="fw-light">${loggedIn.firstName} ${loggedIn.lastName}</h1>
-					<p class="lead text-muted">In oder to purchase one of our
-						magnificent vehicles, please either login to an existing account,
-						or register a new account</p>
-					<p>
-						<a href="/login" class="btn btn-primary my-2">Login</a> <a
-							href="/search" class="btn btn-secondary my-2">Search by Model</a>
-					</p>
-				</div>
+			<div class="col-lg-6 col-md-8 mx-auto">
+				<h1 class="fw-light">${loggedIn.firstName} ${loggedIn.lastName}</h1>
+				<p class="lead text-muted">In oder to purchase one of our
+					magnificent vehicles, please either login to an existing account,
+					or register a new account</p>
+				<p>
+					<a href="/index" class="btn btn-primary my-2">Home</a>
+				</p>
 			</div>
+			
 		</section>
 
 		<div class="album py-5 bg-light">
 			<div class="container">
 
 				<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-				<c:choose>
-					<c:when test="${not empty allCars}">
-					
-						
-						<c:forEach var="cars" items="${allCars}">
-						<div class="col">
-						<!--
-						
-						how to print to the HTML to find errors
-						<c:out value=""></c:out> 
-						
-						-->
-						<div class="card shadow-sm">
-							<img alt="${cars.carDescription}" src="${cars.pictures}" width="100%"
-								height="225">
 
+					<div class="col">
+						<div class="card shadow-sm">
+							<img alt="${details.carDescription}" src="${details.pictures}"
+								width="100%" height="225">
 							<div class="card-body">
+							<p>You are now the proud owner of a ${details.carDescription}</p>
 								<p class="card-text">
-								
-								
-								${cars.carDescription}</p>
-									
-									
-								<div class="d-flex justify-content-between align-items-center">
-									<div class="btn-group">
-										<a type="button" class="btn btn-sm btn-outline-secondary"
-											href="details?vin=${cars.vin}">View</a> 
-									</div>
-									<small class="text-muted">$${cars.price}</small>
-								</div>
+								With the following specifications! <br><br>
+								Type: ${details.newOrUsed}<br><br>
+								Make: ${details.make}<br><br>
+								Model: ${details.model}<br><br>
+								Kilometers ran: ${details.kilometersRan}
+								</p>
 							</div>
-								</div>
+						</div>
 					</div>
-							</c:forEach>
-					
-					</c:when>
-					<c:otherwise>
-						<h3>Sold out! no cars left!</h3>
-						</c:otherwise>
-					</c:choose>
 				</div>
 			</div>
 		</div>

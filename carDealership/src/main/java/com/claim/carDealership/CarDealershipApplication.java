@@ -17,7 +17,7 @@ public class CarDealershipApplication extends SpringBootServletInitializer{
 	}
 	
 	public static void main(String[] args) throws Exception{
-		SpringApplication.run(CarDealershipApplication.class, args);
+		SpringApplication.run(CarDealershipApplication.class, args); 
 	}
 
 }

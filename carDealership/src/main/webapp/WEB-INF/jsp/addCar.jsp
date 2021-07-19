@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Login page</title>
+<title>Student Portal</title>
 
 <link rel="canonical"
 	href="https://getbootstrap.com/docs/4.4/examples/cover/">
@@ -46,8 +46,8 @@
 			<div class="inner">
 				<h3 class="masthead-brand">Cover</h3>
 				<nav class="nav nav-masthead justify-content-center">
-					<a class="nav-link active" href="/index">Home</a> <a class="nav-link"
-						href="/login">Login</a> <a class="nav-link" href="/sign-up">Sign up</a>
+					<a class="nav-link active" href="/">Home</a> <a class="nav-link"
+						href="/sign-up">Sign up</a> <a class="nav-link" href="/login">Login</a>
 				</nav>
 			</div>
 		</header>
@@ -55,31 +55,40 @@
 		<main role="main" class="inner cover">
 
 
-			<form:form action="/login" modelAttribute="customer" method="post">
+			<form:form action="/addCar" modelAttribute="car" method="post">
 
-				<div class="form-row justify-content-center">
-					<div class="form-group col-md-3">
-					<h3>${msg} <br>
-                           <small class="text-danger">${error} ${param.error} </small> <br>
-                                Please Sign in now</h3>
-						<label for="inputEmail4">Email</label>
-						
-						<!-- the path here has to match up to the customer object (since we told it that in the modelAttribute)-->
-						
-						<form:input path="email" type="email" class="form-control"
-							id="inputEmail4" href="index?loggedIn=${loggedIn.email}"/>
+				<div class="form-row">
+					<div class="form-group col-md-6">
+						<label for="inputMake">Make</label>
+						<form:input type="text" path="make" class="form-control"
+							id="inputMake" />
+					</div>
+					<div class="form-group col-md-6">
+						<label for="inputModel">Model</label>
+						<form:input type="text" path="model" class="form-control"
+							id="inputModel" />
 					</div>
 				</div>
 
-				<div class="form-row justify-content-center">
-					<div class="form-group col-md-3">
-						<label for="inputPassword4">Password</label>
-						<form:input path="password" type="password" class="form-control"
-							id="inputPassword4" />
+				<div class="form-row">
+					<div class="form-group col-md-6">
+						<label for="inputCarDescription">Car Description</label>
+						<form:input type="text" path="carDescription" class="form-control"
+							id="inputCarDescription" placeholder="2021 Dodge Charger" />
 					</div>
+					<div class="form-group col-md-6"></div>
+					<label for="inputPrice">Price</label>
+					<form:input type="int" path="price" class="form-control"
+						id="inputPrice" placeholder="1000" />
 				</div>
-
-				<button type="submit" class="btn btn-primary">Log in</button>
+				<div class="form-row">
+				<div class="form-group col-md-6">
+				<label for="inputKilometersRan">Kilometers Ran</label>
+						<form:input type="int" path="kilometersRan" class="form-control"
+							id="inputKilometersRan" placeholder="1000" />
+				</div>
+				</div>
+				<button type="submit" class="btn btn-primary">Add car</button>
 			</form:form>
 
 
